@@ -2,7 +2,7 @@
 // changes (w:del + w:ins) on every third paragraph. No real content.
 //   node scripts/make-lease.mjs            -> public/lease-25.docx, lease-100.docx, lease-300.docx
 //   node scripts/make-lease.mjs 1200       -> public/lease-1200p.docx (1,200 paragraphs)
-import { writeFile } from "node:fs/promises"
+import { mkdir, writeFile } from "node:fs/promises"
 import JSZip from "jszip"
 
 const WORDS = ("the tenant shall landlord premises covenant rent term lease clause " +
@@ -58,6 +58,7 @@ async function writeDocx(path, paragraphs) {
   console.log(`${path}: ${paragraphs} paragraphs, ${Math.ceil(paragraphs / 3)} tracked replacements`)
 }
 
+await mkdir("public", { recursive: true })
 const custom = process.argv[2]
 if (custom) await writeDocx(`public/lease-${custom}p.docx`, Number(custom))
 else for (const [pages, paras] of [[25, 300], [100, 1200], [300, 3600]]) await writeDocx(`public/lease-${pages}.docx`, paras)
