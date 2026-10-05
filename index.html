@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SuperDoc accept perf repro</title>
+    <style>
+      body { margin: 0; font: 14px system-ui, sans-serif; display: grid; grid-template-columns: 1fr 320px; height: 100vh; }
+      #editor { overflow: auto; background: #f3f3f3; }
+      aside { border-left: 1px solid #ddd; padding: 12px; overflow: auto; }
+      button { font: inherit; padding: 6px 10px; margin: 4px 4px 4px 0; }
+      table { border-collapse: collapse; width: 100%; margin-top: 8px; }
+      td, th { border-bottom: 1px solid #eee; padding: 2px 4px; text-align: right; }
+      th:first-child, td:first-child { text-align: left; }
+    </style>
+  </head>
+  <body>
+    <div id="editor"></div>
+    <aside>
+      <div>
+        Document:
+        <a href="?doc=lease-25">25 pages</a> ·
+        <a href="?doc=lease-100">100 pages</a> ·
+        <a href="?doc=lease-300">300 pages</a>
+      </div>
+      <p id="status">Loading…</p>
+      <button id="accept" disabled>Accept next change</button>
+      <button id="accept5" disabled>Accept 5</button>
+      <table>
+        <thead><tr><th>#</th><th>accept() → next paint (ms)</th></tr></thead>
+        <tbody id="log"></tbody>
+      </table>
+    </aside>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

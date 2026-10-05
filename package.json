@@ -1,0 +1,21 @@
+{
+  "name": "superdoc-accept-perf-repro",
+  "private": true,
+  "type": "module",
+  "description": "Minimal repro: accepting a tracked change in SuperDoc gets superlinearly slower as document size and tracked-change count grow.",
+  "scripts": {
+    "generate": "node scripts/make-lease.mjs",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "bench": "node scripts/bench.mjs"
+  },
+  "dependencies": {
+    "@harbour-enterprises/superdoc": "1.47.0"
+  },
+  "devDependencies": {
+    "jszip": "^3.10.1",
+    "playwright": "1.60.0",
+    "vite": "^7.1.0"
+  }
+}
