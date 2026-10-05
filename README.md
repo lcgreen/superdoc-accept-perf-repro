@@ -18,9 +18,9 @@ median of 5 accepts after 1 warm-up. Headless Chromium (Playwright 1.60), Apple 
 |---|---|---|---|---|
 | `lease-25` (~25 pages) | 300 | 100 | ~80 ms | ~360 ms |
 | `lease-100` (~100 pages) | 1,200 | 400 | ~215 ms | ~1.0 s |
-| `lease-300` (~300 pages) | 3,600 | 1,200 | **1.3–3.6 s** | **~11.5 s** |
+| `lease-300` (~300 pages) | 3,600 | 1,200 | **1.3–4.4 s** | **~11.5 s** |
 
-Tripling the document (100 → 300 pages) makes each accept **6–15× slower**.
+Tripling the document (100 → 300 pages) makes each accept **6–20× slower**.
 The 300-page figures vary between runs, but the superlinear growth appears in every run.
 4× throttling approximates a typical corporate Windows laptop.
 
